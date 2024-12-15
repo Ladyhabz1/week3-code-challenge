@@ -82,6 +82,23 @@ header p {
     color: #777;
     margin-top: 0.5em;
 }
+.btn-buy-ticket {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: orangered; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.btn-buy-ticket:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
 
 /* Footer Styling */
 footer {
