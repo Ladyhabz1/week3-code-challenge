@@ -48,13 +48,41 @@ function renderFilm(film) {
     });
 }
 
+// Function to render the film menu in ul#films
+function renderFilmMenu(film) {
+    const filmList = document.querySelector("#films");
+    const listItem = document.createElement("li");
+    listItem.className = "film item";
+    listItem.textContent = film.title;
+
+    // Highlight and display film details on click
+    listItem.addEventListener("click", () => {
+        document.querySelector(".container").innerHTML = ""; // Clear previous cards
+        renderFilm(film); // Render only the selected film
+    });
+
+    filmList.appendChild(listItem);
+}
+
 // Function to fetch and render all films
 function showAllFilms() {
     fetch('http://localhost:3000/films')
         .then(res => res.json())
         .then(filmData => {
-            document.querySelector(".container").innerHTML = ""; // Clear existing films
-            filmData.forEach(film => renderFilm(film));
+            const filmList = document.querySelector("#films");
+            if (filmList) {
+                // Clear the existing film list
+                filmList.innerHTML = "";
+            }
+
+            // Clear existing cards
+            document.querySelector(".container").innerHTML = "";
+
+            // Render films in both the menu and as cards
+            filmData.forEach(film => {
+                renderFilmMenu(film); // Add to film menu
+                renderFilm(film); // Render film cards
+            });
         })
         .catch(error => console.error('Error fetching films', error));
 }
@@ -66,14 +94,15 @@ function handleSearch() {
 
     searchButton.addEventListener("click", () => {
         const query = searchBar.value.toLowerCase();
-        document.querySelector(".container").innerHTML = ""; // Clear previous results
 
         fetch('http://localhost:3000/films')
             .then(response => response.json())
             .then(films => {
                 const filteredFilms = films.filter((film) =>
-                    film.description.toLowerCase().includes(query)
+                    film.title.toLowerCase().includes(query)
                 );
+
+                document.querySelector(".container").innerHTML = ""; // Clear previous results
 
                 if (filteredFilms.length === 0) {
                     document.querySelector(".container").innerHTML = `
@@ -91,6 +120,43 @@ function handleSearch() {
 
 // Initialize the application
 document.addEventListener("DOMContentLoaded", () => {
+    // Ensure the ul#films element exists
+    if (!document.querySelector("#films")) {
+        const filmMenu = document.createElement("ul");
+        filmMenu.id = "films";
+        document.body.prepend(filmMenu);
+    }
+
+    // Style the film menu to appear on the left center
+    const style = document.createElement("style");
+    style.textContent = `
+        #films {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            list-style-type: none;
+            padding: 10px;
+            background-color: #f4f4f4;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            height: auto;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+
+        .film.item {
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .film.item:hover {
+            background-color: #ddd;
+        }
+    `;
+    document.head.appendChild(style);
+
     // Check if the required DOM elements exist, create them if not
     if (!document.querySelector(".search-bar")) {
         const searchBar = document.createElement("input");
