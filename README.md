@@ -65,8 +65,7 @@ json-server --watch db.json
 ```
 
 ### 5. Open the Application in a Browser
-
-Simply open the index.html file in your browser to view the project. You can do this by double-clicking the file or using a live server extension (e.g., in VS Code).
++ Simply open the index.html file in your browser to view the project. You can do this by double-clicking the file or using a live server extension (e.g., in VS Code).
 ---
 
 ## 5. Contribution
