@@ -46,18 +46,27 @@
 git clone git@github.com:Ladyhabz1/week3-code-challenge.git
 ```
 
-### 2. Open the project in a browser
+### 2. Navigate to the projcect directory
 
-    Simply open the index.html file in your browser to see the project in action.
+```bash
+cd week3-code-challenge
+```
 
+### 3. Install JSON Server (if not already installed)
 
-### 3. Running Locally
+```bash
+npm install -g json-server
+```
 
-To run the project locally with live data (from the db.json file), you can use a local server. If you have VS Code installed, you can use the "Live Server" extension to quickly launch the project in your browser.
+### 4. Start the JSON Server
 
-## 4. Sample Data (db.json)
+```bash
+json-server --watch db.json
+```
 
-The project uses a local JSON file (db.json) to simulate a database for movie details. 
+### 5. Open the Application in a Browser
+
+Simply open the index.html file in your browser to view the project. You can do this by double-clicking the file or using a live server extension (e.g., in VS Code).
 ---
 
 ## 5. Contribution
