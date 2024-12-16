@@ -1,24 +1,18 @@
 ## FLATDANGO MOVIE BOOKING WEB APP
 
-## Table of Contents
+### Description
++ A simple movie ticket booking system that allows users to view movie details, including title, runtime, showtime, and available tickets. Users can also buy tickets for movies if they are available.
+---
+### Table of Contents
 - [Description](#description)
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
 - [Setup Instructions](#setup-instructions)
-  - [Clone the repository](#1-clone-the-repository)
-  - [Open the project in a browser](#2-open-the-project-in-a-browser)
-  - [Running Locally](#3-running-locally)
-  - [Sample Data (db.json)](#4-sample-data-dbjson)
-  - [Modifying the Movie Data](#5-modifying-the-movie-data)
 - [Contribution](#how-to-contribute)
 - [License](#license)
-
-### Description
-A simple movie ticket booking system that allows users to view movie details, including title, runtime, showtime, and available tickets. Users can also buy tickets for movies if they are available.
 ---
 ### Features 
-
 - Displays a list of movies with their titles and posters.
 - When a movie is clicked, its full details are shown, including:
   - Title
@@ -64,8 +58,6 @@ To run the project locally with live data (from the db.json file), you can use a
 ## 4. Sample Data (db.json)
 
 The project uses a local JSON file (db.json) to simulate a database for movie details. 
-
-
 ---
 
 ## 5. Contribution
@@ -89,8 +81,7 @@ git commit -m "Add a new feature"
 git push origin feature/YourFeature 
 ```
 
-5. Open a pull request
-
+5. Open a pull request 
 ---
 ## Contact
 Can be reached by the email below for questions and comments 
